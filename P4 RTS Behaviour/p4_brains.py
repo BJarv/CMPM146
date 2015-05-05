@@ -133,6 +133,7 @@ class SlugBrain:
             self.body.go_to(toFleeTo)
             self.state = 'fleeing'
         else:
+          pass
           #print details
 
       if message is 'timer':              #harvest collide timer
