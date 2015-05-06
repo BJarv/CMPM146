@@ -80,6 +80,7 @@ def make_effector(rule):
     delta_pairs = production_pairs + consumption_pairs 
     #make this defined for all values in the state
     #get can return a default value
+    #.get(something, 0) and enumerate(items) or something.
     #heur: return inf when more than some max limit of each item is produced
     #for all axe types unless goal requires that axe type, dont consider using it.
     def effect(state):
