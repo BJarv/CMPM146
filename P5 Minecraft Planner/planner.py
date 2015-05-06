@@ -32,12 +32,14 @@ def make_initial_state(inventory):
 def make_goal_checker(goal):
     newGoal = inventory_to_tuple(goal)
     checkList = []
-    for i in range(0, len(newGoal)):
+    for i in range(len(newGoal)):
         if newGoal[i] != 0:
             checkList.append(i)
     def is_goal(state):
         #print "state",state
         #print "newGo",newGoal
+        print 'state', state
+        print checkList
         for each in checkList:
             if state[each] < newGoal[each]:
                 return False
@@ -47,7 +49,7 @@ def make_goal_checker(goal):
 
 def items_to_dict(d):
     item_indices = {}
-    for i in range(0, len(d)):
+    for i in range(len(d)):
         item_indices[d[i]] = i
     return item_indices
 
@@ -73,9 +75,13 @@ def make_effector(rule):
     produces, consumes = rule.get('Produces',{}), rule.get('Consumes',{})
     production_pairs = [(item_index[item], produces[item]) for item in produces]
     print "prodpairs", production_pairs
-    consumption_pairs = [(item_index[item], consumes[item]) for item in consumes]
+    consumption_pairs = [(item_index[item], 1) for item in consumes]
     print "conspairs", consumption_pairs
-    delta_pairs = production_pairs + consumption_pairs
+    delta_pairs = production_pairs + consumption_pairs 
+    #make this defined for all values in the state
+    #get can return a default value
+    #heur: return inf when more than some max limit of each item is produced
+    #for all axe types unless goal requires that axe type, dont consider using it.
     def effect(state):
         # this code runs millions of times
         return tuple([state[i] + delta for i, delta in delta_pairs])
