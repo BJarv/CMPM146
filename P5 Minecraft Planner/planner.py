@@ -7,6 +7,7 @@ with open('Crafting.json') as f:
 print Crafting['Initial']
 print Crafting['Goal']
 print Crafting['Recipes']['craft stone_pickaxe at bench']"""
+Items = Crafting['Items']
 
 def inventory_to_tuple(d):
     """
@@ -73,11 +74,13 @@ def make_effector(rule):
     # this code runs once
     # do something with rule['Produces'] and rule['Consumes']
     produces, consumes = rule.get('Produces',{}), rule.get('Consumes',{})
-    production_pairs = [(item_index[item], produces[item]) for item in produces]
-    print "prodpairs", production_pairs
+    for i in Items:
+        if i not in produces:
+            produces[i] = 0
+    #production_pairs = [(item_index[item], produces[item]) for item in produces]
+    production_pairs = [(item_index[item], produces[item]) for item in Items]
     consumption_pairs = [(item_index[item], 1) for item in consumes]
-    print "conspairs", consumption_pairs
-    delta_pairs = production_pairs + consumption_pairs 
+    delta_pairs = production_pairs + consumption_pairs
     #make this defined for all values in the state
     #get can return a default value
     #.get(something, 0) and enumerate(items) or something.
