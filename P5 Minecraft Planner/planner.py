@@ -8,6 +8,7 @@ print Crafting['Initial']
 print Crafting['Goal']
 print Crafting['Recipes']['craft stone_pickaxe at bench']"""
 Items = Crafting['Items']
+inf = float('inf')
 
 def inventory_to_tuple(d):
     """
@@ -39,8 +40,8 @@ def make_goal_checker(goal):
     def is_goal(state):
         #print "state",state
         #print "newGo",newGoal
-        print 'state', state
-        print checkList
+        #print 'state', state
+        #print checkList
         for each in checkList:
             if state[each] < newGoal[each]:
                 return False
@@ -141,6 +142,7 @@ def search(graph, initial, is_goal, limit, heuristic=None):
                 dist[next] = alt
                 prev[next] = (name, state, cost)
                 estimate = heur(next)
+                #print estimate
                 heappush(queue, (alt + estimate, next))
 
     if is_goal(state):
@@ -154,4 +156,42 @@ def search(graph, initial, is_goal, limit, heuristic=None):
 temp_goal = make_goal_checker(Crafting['Goal'])
 initial = make_initial_state(Crafting['Initial'])
 
-print search(graph, initial, temp_goal, 1000, None)
+def heuristic(next):
+	if next[0] is 2:	#bench
+		return inf
+	elif next[1] > 2:	#cart
+		return inf
+	elif next[2] > 5:	#coal
+		return inf
+	elif next[3] > 8:	#cobble
+		return inf
+	elif next[4] is 2:	#furnace
+		return inf
+	elif next[5] > 6:	#ingot
+		return inf
+	elif next[6] is 2:	#iron_axe
+		return inf
+	elif next[7] is 2:	#iron_pickaxe
+		return inf
+	elif next[8] is 7:	#ore
+		return inf
+	elif next[9] > 8: 	#plank
+		return inf
+	elif next[10] > 16: #rail
+		return inf
+	elif next[11] > 6: 	#stick
+		return inf
+	elif next[12] is 2:	#stone_axe
+		return inf
+	elif next[13] is 2:	#stone_pickaxe
+		return inf
+	elif next[14] > 2: 	#wood
+		return inf
+	elif next[15] is 2:	#wooden_axe
+		return inf
+	elif next[16] is 2:	#wooden_pickaxe
+		return inf
+	else:
+		return 0
+
+print search(graph, initial, temp_goal, 1000, heuristic)
