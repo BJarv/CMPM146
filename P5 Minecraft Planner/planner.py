@@ -177,7 +177,7 @@ def heuristic(next):
 		return inf
 	elif next[9] > 8: 	#plank
 		return inf
-	elif next[10] > 16: #rail
+	elif next[10] > 32: #rail
 		return inf
 	elif next[11] > 6: 	#stick
 		return inf
