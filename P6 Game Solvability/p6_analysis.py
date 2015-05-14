@@ -8,7 +8,7 @@ def analyze(design):
     queue = []
     visited = []
 
-    init = sim.get_state_initial_state()
+    init = sim.get_initial_state()
     moves = sim.get_moves()
     next_state = sim.get_next_state(init, moves[0])
 	
@@ -37,7 +37,8 @@ def analyze(design):
 def inspect((i,j), draw_line):
     # TODO: use ANALYSIS and (i,j) draw some lines
     found = False
-    for next in ANALYSIS.keys():
+    for next in ANALYSIS:
+        print 'i ', i, 'nex:t ', next[0][0]
         if i is next[0][0] and j is next [0][1]:
            path = ANALYSIS[next]
            for n in range(len(path) - 1):
