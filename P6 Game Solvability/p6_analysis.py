@@ -49,7 +49,7 @@ def inspect((i,j), draw_line):
                found = True
                draw_line(path[n][0], path[n+1][0], offset, color)
            draw_line(path[-1][0], (i,j), offset, color)
-           break
+           #break
     if not found:
         print "Nothing was found"
     #raise NotImplementedError
