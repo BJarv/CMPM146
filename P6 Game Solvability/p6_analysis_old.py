@@ -5,8 +5,6 @@ import p6_tool
 ANALYSIS = {}
 
 def analyze(design):
-    global ANALYSIS
-    ANALYSIS = {}
     sim = Simulator(design)
     queue = []
     visited = []
@@ -37,6 +35,8 @@ def analyze(design):
     # TODO: fill in this function, populating the ANALYSIS dict
     #raise NotImplementedError
 
+Analysis = {}
+
 def inspect((i,j), draw_line):
     # TODO: use ANALYSIS and (i,j) draw some lines
     
@@ -49,9 +49,9 @@ def inspect((i,j), draw_line):
            color = p6_tool.make_color()
            for n in range(len(path) - 1):
                found = True
-               draw_line(path[n][0], path[n+1][0], (next), color)
-           draw_line(path[-1][0], (i,j), (next), color)
-           
+               draw_line(path[n][0], path[n+1][0], offset, color)
+           draw_line(path[-1][0], (i,j), offset, color)
+           #break
     if not found:
         print "Nothing was found"
     #raise NotImplementedError

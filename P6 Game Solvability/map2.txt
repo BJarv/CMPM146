@@ -1,7 +1,7 @@
 E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E
 E 0 A A A A A A A A A A A A A A A A A A A A A A A A A A A A A E
-E A A A A A A A 4 A A A A E E A A A A A A A A A A A A A A A A E
-E E E E E E E E E E E E E E E E A A A A A A A E E A A A A A A E
+E A A A A A A A 3 A A A A E E A A A A A A A A A A A A A A A A E
+E E E E E E E E E E E E E E E E A A A A A A A A A A A A A A A E
 E A A A A A A A A A A A A A E E E A A A A A A E E A A E A A A E
 E A A A A A A A A A 5 A A A E E E E F F F F E E E A E A A A A E
 E A E E E E A E A E E E A E E E E E E E E E E E E A E E E A A E
@@ -12,7 +12,7 @@ E F F E E E E A A A E E E E W E W W E F E F F E A A A E E E W E
 E F F E E E E A A A A A E E W E W W E F F F E E A A E E E W W E
 E F E E E E A A A E E W W E W W W W E E F F E W W E E W W W W E
 E F E E E E E E E E E E W W W W W W W W F F W W W W W W W W W E
-E F F E E E E E F F E E E E E E W W W W F F W W 3 W W W E E E E
+E F F E E E E E F F E E E E E E W W W W F F W W W W 4 W E E E E
 E F F F E E E F F F F F F F F F F W F F F F F F F F F E E E E E
 E F F F F F F F F F F F F F F F F W F F F F F F F F E E E E E E
 E 2 F F F F F F F F F F F F F F F F F F F F F F F E E E E E E E
