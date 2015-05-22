@@ -21,8 +21,9 @@ def parse_json_result(out):
     """Parse the provided JSON text and extract a dict
     representing the predicates described in the first solver result."""
     
-    with open(out) as f:
+    with open('example_noshortcut.json') as f:
         result = json.load(f)
+    #result = json.loads(out)
     assert len(result['Call']) > 0
     assert len(result['Call'][0]['Witnesses']) > 0
     
@@ -86,6 +87,6 @@ def side_by_side(*blocks):
         lines.append(' '.join(tup))
     return '\n'.join(lines)
 
-map = parse_json_result(sys.argv[1])
-print render_ascii_dungeon(map)
+#map = parse_json_result(sys.argv[1])
+#print render_ascii_dungeon(map)
 #render_ascii_touch(map)

@@ -19,6 +19,9 @@ touch(T2,S2) :- step(T1,S1,T2,S2).
 
 % you can't touch a wall in any state
 :- sprite(T,wall); touch(T,S).
+
+%is this where this should be? still need to do bullet #1 of step 8, as well as finish bullet #2
+%a_trap_went_untouched :- sprite(T,trap); not touch(T,2).
     
 % you can't touch a trap after picking up the gem
 :- sprite(T,trap); touch(T,S); S > 1.
